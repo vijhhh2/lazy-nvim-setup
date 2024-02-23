@@ -10,6 +10,8 @@ local function my_on_attach(bufnr)
 
   -- custom mappings
   vim.keymap.set("n", "<C-t>", api.tree.change_root_to_parent, opts("Up"))
+  vim.keymap.set("n", "<C-n>", api.tree.toggle, { desc = "Toggle NvimTree" })
+  vim.keymap.set("n", "<leader>e", api.tree.open, { desc = "Focus NvimTree", noremap = true })
   vim.keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
 end
 
@@ -27,6 +29,7 @@ return {
         sort = {
           sorter = "case_sensitive",
         },
+        update_focused_file = { enable = true },
         view = {
           width = 40,
           side = "right",
